@@ -54,6 +54,34 @@ lunch_time = {
     "wednesday": ["13:35", "14:20"]
     }
 
+teachers_room_number = {
+    "Mr. Barrett":[],
+    "Ms. Bechdolt":[],
+    "Mr. Berntson":[],
+    "Ms. Beyers":[],
+    "Mr. Campbell":[],
+    "Mr. Celinski":[],
+    "Mr. Chisholm":[],
+    "Mr. Dachpian":[],
+    "Ms. Deo":[],
+    "Ms. Doering":[],
+    "Ms. Doiron":[],
+    "Ms. Galek":[],
+    "Mr. Gaspersich":[],
+    "Mr. Hanners":[],
+    "Ms. Hay":[],
+    "Ms. Hemerka":[],
+    "Mr. Hodin":[],
+    "Ms. Jordan":[],
+    "Mr. Julien":[],
+    "Ms. Kielczewska":[],
+    "Ms. Kililea":[],
+    "Mr. Kryger":[],
+    "Ms. Linehan":[],
+    "Ms. Lyons":[],
+    
+
+}
 pairs = [
     [
         r'(.*)(add|put)( )(.*)( )(on|to)(.*)', 
