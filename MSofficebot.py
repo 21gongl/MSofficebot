@@ -115,7 +115,7 @@ teachers_room_number = {
     "Anna Milewska":["H002"],
     "Maria Milewska":["H007"],
     "Tim Munnerlyn":["H007c"],
-    "Valerie Navarro":["AA107],
+    "Valerie Navarro":["AA107"],
     "Michael Nieman":["A002"],
     "Joanna Olczak":["H202"],
     "Nicolas Pavlos":["C105"],
@@ -124,7 +124,7 @@ teachers_room_number = {
     "Laura Pitale":["H114"],                   
     "Pawel Ptak":["AA007b"],
     "Tami Ranado":["H023"],
-    "Amber Russel":["M023", "C154"]
+    "Amber Russel":["M023", "C154"],
     "Benjamin Schlief":["AA007b", "all gyms"],
     "Lourdes Segurado":["M011"],
     "Irene Sendra":["C122"],
