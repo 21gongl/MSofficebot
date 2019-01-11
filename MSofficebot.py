@@ -1,7 +1,7 @@
 from nltk.chat.util import Chat, reflections
 import re
 import random
-import teacher_room_number.py
+import teacher_room_number
 
 # === This is the extension code for the NLTK library ===
 #        === You dont have to understand it ===
