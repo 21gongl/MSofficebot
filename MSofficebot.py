@@ -1,7 +1,7 @@
 from nltk.chat.util import Chat, reflections
 import re
 import random
-import teacher_room_number
+from teacher_room_number import teacher_room_number
 
 # === This is the extension code for the NLTK library ===
 #        === You dont have to understand it ===
@@ -48,6 +48,11 @@ class ContextChat(Chat):
                 print(self.respond(user_input))
 
 # === Your code should go here ===
+
+def find_room(teacher):
+    teacher = ""
+
+
 school_bus_time = ["3:45", "4:30", "5:30"]
 
 lunch_time = {
@@ -69,31 +74,37 @@ pairs = [
       	['Buses leave at {0}.'.format(school_bus_time)]
     ],
   	[
-      	r'(.*)(where)(.*)(MS Lost and Found)?',
+      	r'(.*)(where)(.*)(Lost and Found)?',
       	['MS Lost and Found is next to the MS Office.']
     ],
   	[
-      	r"(.*)(why can't I use my phone)",
+      	r"(.*)(why can't I use my phone)?",
       	["You can't use your phone because it may distract you from learning."]
     ],
     [
-        r'(.*)(when|what time)(.*)(lunch)(.*)(monday|tuesday|thursday|friday)', 
+        r'(.*)(when|what time)(.*)(lunch)(.*)(monday|tuesday|thursday|friday)?', 
         ['Lunch is between {0}.'.format(lunch_time["not wednesday"])]
     ],
     [
-        r'(.*)(when|what time)(.*)(lunch)(.*)(wednesday)', 
+        r'(.*)(when|what time)(.*)(lunch)(.*)(wednesday)?', 
         ['Lunch is between {0} on Wednesdays.'.format(lunch_time["wednesday"])]
     ],
   	[
-      	r"(.*)(when|what time)(.*)(lunch)",
+      	r'(.*)(when|what time)(.*)(lunch)?',
       	['Lunch is between {0}.'.format(lunch_time["not wednesday"])]
     ],
     [
-        r'(.*)(how)(.*)(quit)(.*)',
+        r'(.*)(how)(.*)(quit)(.*)?',
         ["To quit, you simply enter the word 'bye'."]
     ],
+    #here is the problem we're working on
+    #doesnt work at all
     [
-        r'(.*)(thanks|thank you|thx)',
+        r'(.*)(where is|where can I find)( )(.*)?',
+        ["They are in {0}.".format(teacher_room_number[4)]
+    ],
+    [
+        r'(.*)(thanks|thank you|thx)(.*)',
         ["You're welcome!"]
     ],
   	[
