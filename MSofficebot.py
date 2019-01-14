@@ -36,7 +36,7 @@ class ContextChat(Chat):
             pos = response.find('%')
         return response
 
-    def converse(self, quit="quit"):
+    def converse(self, quit="bye"):
         user_input = ""
         while user_input != quit:
             user_input = quit
