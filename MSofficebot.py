@@ -36,7 +36,7 @@ class ContextChat(Chat):
             pos = response.find('%')
         return response
 
-    def converse(self, quit="bye"):
+    def converse(self, quit="quit"):
         user_input = ""
         while user_input != quit:
             user_input = quit
@@ -74,11 +74,11 @@ pairs = [
     ],
     [
         r'(how)(.*)(quit)(.*)?',
-        ["To quit, you simply enter the word 'bye'."]
+        ["To quit, you simply enter the word 'quit'."]
     ],
     [
         r'(where)(.*)( )(room)?',
-        ["They are in {0}.".format(teacher_room_number.get(insert_name))] #instead of "insert_name", we need to put in the teacher's name that the student inputed before "room" in their question
+        ["They are in {0}.".format(teacher_room_number.get("something"))] #instead of "something", we need to insert the teacher's name that the student inputed before "room" in their question
     ],
   	[
       	r'(where is MS Lost and Found?)',
