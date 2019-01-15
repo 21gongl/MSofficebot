@@ -1,4 +1,4 @@
-teachers_room_number = {
+teacher_rooms = {
     "Jonica Asteros":["H214b"],
     "Michael Barrett":["M123"],
     "Carl Beach":["H005"],
@@ -95,3 +95,6 @@ teachers_room_number = {
     "Steven Wood":["C161"],
     "James Wyatt":["H022"]                   
 }
+
+def find_teacher_room(teacher):
+    return teacher_rooms[teacher]
