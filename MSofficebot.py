@@ -1,8 +1,8 @@
 from nltk.chat.util import Chat, reflections
 import re
 import random
-from teacher_room_number import teacher_room_number
-
+# from teacher_room_number import teacher_rooms
+import teacher_room_number
 # === This is the extension code for the NLTK library ===
 #        === You dont have to understand it ===
 
@@ -78,7 +78,9 @@ pairs = [
     ],
     [
         r'(where)(.*)( )(room)?',
-        ["They are in {0}.".format(teacher_room_number.get("something"))] #instead of "something", we need to insert the teacher's name that the student inputed before "room" in their question
+        lambda matches: "They're in %2" if find_teacher_room(matches[2]) else "%2 is not a teacher."
+# ["They are in {0}.".format(teacher_room_number.get("something"))] #instead of "something", we need to insert the teacher's name that the student inputed before "room" in their question
+        # [teacher_room_number.find_teacher_room(user_input)]
     ],
   	[
       	r'(where is MS Lost and Found?)',
@@ -89,8 +91,18 @@ pairs = [
       	["You can't use your phone because it may distract you from learning."]
     ],
     [
+        r'(how are you?))',
+        ["Good."],
+        ["Fine, thank you!"]
+    ],
+    [
+        r'(hello|hi)',
+        ["Hello."],
+        ["Hi!"]
+    ],
+    [
         r'(.*)(thanks|thank you|thx)(.*)',
-        ["You're welcome!"]
+        ["You're welcome."]
     ],
   	[
         r'(.*)',
