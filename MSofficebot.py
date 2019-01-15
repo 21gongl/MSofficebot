@@ -1,8 +1,8 @@
 from nltk.chat.util import Chat, reflections
 import re
 import random
-# from teacher_room_number import teacher_rooms
-import teacher_room_number
+from teacher_room_number import teacher_rooms
+
 # === This is the extension code for the NLTK library ===
 #        === You dont have to understand it ===
 
@@ -48,6 +48,7 @@ class ContextChat(Chat):
                 print(self.respond(user_input))
 
 # === Your code should go here ===
+
 school_bus_time = ["3:45", "4:30", "5:30"]
 
 lunch_time = {
@@ -56,33 +57,27 @@ lunch_time = {
     }
 
 pairs = [
-  	[
+    [
       	r'(when)(.*)(schoolbus|bus)(leave)?',
       	['Buses leave at {0}.'.format(school_bus_time)]
     ],
     [
-        r'(when)(.*)(lunch)(.*)(monday|tuesday|thursday|friday)?', 
+        r'(when)(.*)(lunch)(.*)(monday|tuesday|thursday|friday?)', 
         ['Lunch is between {0}.'.format(lunch_time["not wednesday"])]
     ],
     [
-        r'(when)(.*)(lunch)(.*)(wednesday)?', 
+        r'(when)(.*)(lunch)(.*)(wednesday?)', 
         ['Lunch is between {0} on Wednesdays.'.format(lunch_time["wednesday"])]
     ],
-  	[
-      	r'(when)(.*)(lunch)?',
+    [
+      	r'(when)(.*)(lunch?)',
       	['Lunch is between {0} on most days.'.format(lunch_time["not wednesday"])]
     ],
     [
-        r'(how)(.*)(quit)(.*)?',
-        ["To quit, you simply enter the word 'quit'."]
+        r'(where)(.*)( )(room?)',
+        lambda matches: "They're in %2" if find_teacher_room(matches[2]) else "Please enter %2's ."
     ],
     [
-        r'(where)(.*)( )(room)?',
-        lambda matches: "They're in %2" if find_teacher_room(matches[2]) else "%2 is not a teacher."
-# ["They are in {0}.".format(teacher_room_number.get("something"))] #instead of "something", we need to insert the teacher's name that the student inputed before "room" in their question
-        # [teacher_room_number.find_teacher_room(user_input)]
-    ],
-  	[
       	r'(where is MS Lost and Found?)',
       	['MS Lost and Found is next to the MS Office.']
     ],
@@ -91,14 +86,20 @@ pairs = [
       	["You can't use your phone because it may distract you from learning."]
     ],
     [
-        r'(how are you?))',
-        ["Good."],
+        r'(how do I quit?)',
+        ["To quit, you simply enter the word 'quit'."]
+    ],
+    [
+        r'(how are you?)',
         ["Fine, thank you!"]
     ],
     [
-        r'(hello|hi)',
-        ["Hello."],
+        r'(hi)',
         ["Hi!"]
+    ],
+    [
+        r'(hello)',
+        ["Hello."]
     ],
     [
         r'(.*)(thanks|thank you|thx)(.*)',
@@ -107,7 +108,6 @@ pairs = [
   	[
         r'(.*)',
         ["Maybe you should try to rephrase your question."],
-        ["I don't know, but Ms. Gosia may be able to answer that."]
     ],
 ]
 
