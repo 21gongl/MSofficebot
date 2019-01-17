@@ -175,7 +175,7 @@ pairs = [
       	['Lunch is between {0} on most days.'.format(lunch_time["not wednesday"])]
     ],
     [
-        r'(where)(is)(.*)(room?)',
+        r'(where)(.*)(room?)',
         [lambda matches: "It is in " + str( find_teacher_room(matches[1].strip()) )]
     ],
     [
