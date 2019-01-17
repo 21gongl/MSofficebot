@@ -68,8 +68,8 @@ teacher_rooms = {
     "Laura Pitale": "H114" ,                   
     "Pawel Ptak": "AA007b" ,
     "Tami Ranado": "H023" ,
-    "Amber Russel": "M023, C154" ,
-    "Benjamin Schlief": "AA007b and all gyms" ,
+    "Amber Russel": "M023", "C154" ,
+    "Benjamin Schlief": "AA007b", "all gyms" ,
     "Lourdes Segurado": "M011" ,
     "Irene Sendra": "C122" ,
     "Solomon Senrick": "M114" ,
@@ -95,6 +95,3 @@ teacher_rooms = {
     "Steven Wood": "C161" ,
     "James Wyatt": "H022"                    
 }
-
-def find_teacher_room(teacher):
-    return teacher_rooms[teacher]
