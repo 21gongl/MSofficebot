@@ -1,6 +1,8 @@
 from nltk.chat.util import Chat, reflections
 import re
 import random
+import datetime
+from datetime import date
 from teacher_room_number import teacher_rooms
 
 # === This is the extension code for the NLTK library ===
@@ -58,7 +60,13 @@ lunch_time = {
 def find_teacher_room(teacher):
     return teacher_rooms[teacher]
 
-today_date = ""
+today_datetime = datetime.datetime.now()
+today_rotation_day = ""
+today_date = str(today_datetime.strftime("%Y-%m-%d %A")) + today_rotation_day
+rotation_calendar = ""
+
+def rotation(today):
+    return rotation_calandar[today_datetime]
 
 pairs = [
     [
