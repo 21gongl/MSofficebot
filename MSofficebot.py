@@ -62,8 +62,7 @@ def find_teacher_room(teacher):
 
 today_datetime = datetime.datetime.now()
 today_rotation_day = ""
-today_date = str(today_datetime.strftime("%Y-%m-%d %A")) + today_rotation_day
-rotation_calendar = ""
+today_date = str(today_datetime.strftime("%Y-%m-%d %A")) 
 
 def rotation(today):
     return rotation_calandar[today_datetime]
