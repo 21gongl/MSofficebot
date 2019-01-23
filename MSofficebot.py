@@ -139,6 +139,21 @@ if __name__ == "__main__":
         print("That sounds great, I'm glad.")
     elif feeling == "nice":
         print("That's awesome!")
+    elif feeling == "great":
+        print("Sounds amazing!")
+    elif feeling == "awesome":
+        print("That's cool!")
+    elif feeling == "amazing":
+        print("That's nice i hope you are having fun!")
+    elif feeling == "bad":
+        happen = input("That's not good! What happened? ")
+        print("that's very unfortunate, I hope it gets better!!!")
+    elif feeling == "terrible":
+        happen = input("That's unpleasent! What happened? ")
+        print("that's very unfortunate, I hope it gets better!!!")
+    elif feeling == "not good":
+        happen = input("That's not fun! What happened? ")
+        print("that's very unfortunate, I hope it gets better!!!")
     print("{0}, what questions do you have?".format(username))
     chat = ContextChat(pairs, reflections)
     chat.converse()
