@@ -134,7 +134,7 @@ pairs = [
 if __name__ == "__main__":
     name = "MSofficeBot"
     print("Hi, I am {0}.".format(name))
-    username = input("What's your name?")
+    username = input("What's your name? ")
     print("Okay, so your name is {0}.".format(username))
     
     user_feeling = input("How are you today? ")
