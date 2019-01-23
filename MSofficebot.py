@@ -124,7 +124,7 @@ pairs = [
     [
         r'(quit)',
         ["Bye!"]
-    ].
+    ],
   	[
         r'(.*)',
         ["Maybe you should try to rephrase your question."],
