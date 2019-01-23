@@ -121,6 +121,10 @@ pairs = [
         r'(.*)(thanks|thank you|thx)(.*)',
         ["You're welcome."]
     ],
+    [
+        r'(quit)',
+        ["Bye!"]
+    ].
   	[
         r'(.*)',
         ["Maybe you should try to rephrase your question."],
@@ -133,27 +137,27 @@ if __name__ == "__main__":
     username = input("What's your name?")
     print("Okay, so your name is {0}.".format(username))
     
-    
-    feeling = input("How are you today? ")
-    if feeling == "good":
+    user_feeling = input("How are you today? ")
+    if user_feeling == "good":
         print("That sounds great, I'm glad.")
-    elif feeling == "nice":
+    elif user_feeling == "nice":
         print("That's awesome!")
-    elif feeling == "great":
+    elif user_feeling == "great":
         print("Sounds amazing!")
-    elif feeling == "awesome":
-        print("That's cool!")
-    elif feeling == "amazing":
-        print("That's nice i hope you are having fun!")
-    elif feeling == "bad":
-        happen = input("That's not good! What happened? ")
+    elif user_feeling == "awesome":
+        print("Cool!")
+    elif user_feeling == "amazing":
+        print("That's nice, I hope you are having fun!")
+    elif user_feeling == "bad":
+        event = input("That's not good! What happened? ")
+        print("That's very unfortunate, I hope it gets better!!!")
+    elif user_feeling == "terrible":
+        event = input("That's unpleasent! What happened? ")
+        print("That's very unfortunate, I hope it gets better!!!")
+    elif user_feeling == "not good":
+        event = input("That's not fun! What happened? ")
         print("that's very unfortunate, I hope it gets better!!!")
-    elif feeling == "terrible":
-        happen = input("That's unpleasent! What happened? ")
-        print("that's very unfortunate, I hope it gets better!!!")
-    elif feeling == "not good":
-        happen = input("That's not fun! What happened? ")
-        print("that's very unfortunate, I hope it gets better!!!")
-    print("{0}, what questions do you have?".format(username))
+
+    print("So {0}, what questions do you have?".format(username))
     chat = ContextChat(pairs, reflections)
     chat.converse()
