@@ -62,7 +62,8 @@ def find_teacher_room(teacher):
 
 today_datetime = datetime.datetime.now()
 today_rotation_day = ""
-today_date = str(today_datetime.strftime("%Y-%m-%d %A")) 
+today_date = str(today_datetime.strftime("%Y-%m-%d %A")) + today_rotation_day
+rotation_calendar = ""
 
 def rotation(today):
     return rotation_calandar[today_datetime]
@@ -131,6 +132,13 @@ if __name__ == "__main__":
     print("Hi, I am {0}.".format(name))
     username = input("What's your name?")
     print("Okay, so your name is {0}.".format(username))
+    
+    
+    feeling = input("How are you today? ")
+    if feeling == "good":
+        print("That sounds great, I'm glad.")
+    elif feeling == "nice":
+        print("That's awesome!")
     print("{0}, what questions do you have?".format(username))
     chat = ContextChat(pairs, reflections)
     chat.converse()
