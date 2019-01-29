@@ -4,6 +4,8 @@ import random
 import datetime
 from datetime import date
 from teacher_room_number import teacher_rooms
+import json
+import requests
 
 # === This is the extension code for the NLTK library ===
 
@@ -61,12 +63,8 @@ def find_teacher_room(teacher):
     return teacher_rooms[teacher]
 
 today_datetime = datetime.datetime.now()
-today_rotation_day = ""
-today_date = str(today_datetime.strftime("%Y-%m-%d %A")) + today_rotation_day
-rotation_calendar = ""
-
-def rotation(today):
-    return rotation_calandar[today_datetime]
+today_date = str(today_datetime.strftime("%Y-%m-%d %A"))
+rotation_calendar = 
 
 pairs = [
     [
@@ -138,26 +136,17 @@ if __name__ == "__main__":
     print("Okay, so your name is {0}.".format(username))
     
     user_feeling = input("How are you today? ")
-    if user_feeling == "good":
-        print("That sounds great, I'm glad.")
-    elif user_feeling == "nice":
-        print("That's awesome!")
-    elif user_feeling == "great":
-        print("Sounds amazing!")
-    elif user_feeling == "awesome":
+    if user_feeling == "good" or user_feeling == "fine":
+        print("I'm glad.")
+    elif user_feeling == "great" or user_feeling == "awesome" or user_feeling == "amazing":
         print("Cool!")
-    elif user_feeling == "amazing":
-        print("That's nice, I hope you are having fun!")
-    elif user_feeling == "bad":
+    elif user_feeling == "bad" or user_feeling == "terrible" or user_feeling == "not good":
         event = input("That's not good! What happened? ")
-        print("That's very unfortunate, I hope it gets better!!!")
-    elif user_feeling == "terrible":
-        event = input("That's unpleasent! What happened? ")
-        print("That's very unfortunate, I hope it gets better!!!")
-    elif user_feeling == "not good":
-        event = input("That's not fun! What happened? ")
-        print("that's very unfortunate, I hope it gets better!!!")
+        print("That's very unfortunate, I hope it gets better!")
+    else:
+        print("Cool!")1
 
     print("So {0}, what questions do you have?".format(username))
+
     chat = ContextChat(pairs, reflections)
     chat.converse()
