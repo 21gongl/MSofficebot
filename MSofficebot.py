@@ -69,9 +69,19 @@ today_date = today_datetime.strftime('%Y-%m-%d')
 str_today_date = str(today_date)
 date_1 = datetime.strptime('2018-01-28', '%Y-%m-%d')
 date_2 = date_1 + timedelta(days=1)
+date_2 = date_2.strftime('%Y-%m-%d')
+date_3 = date_1 + timedelta(days=2)
+date_3 = date_3.strftime('%Y-%m-%d')
+date_4 = date_1 + timedelta(days=4)
+date_4 = date_4.strftime('%Y-%m-%d')
 date_1 = "Day B"
+date_2 = "Day C"
+date_3 = "Day D"
+date_4 = "Day A"
 
-# def find_day(date):
+def find_day(date):
+    day = ""
+    return day
     
 
 
@@ -156,7 +166,7 @@ if __name__ == "__main__":
         print("Cool!")
 
     print("So {0}, what questions do you have?".format(username))
-    print(date_2)
+    print(date_4)
 
     chat = ContextChat(pairs, reflections)
     chat.converse()
