@@ -138,9 +138,9 @@ if __name__ == "__main__":
     user_feeling = input("How are you today? ")
     if user_feeling == "good" or user_feeling == "fine":
         print("I'm glad.")
-    elif user_feeling == "great" or user_feeling == "awesome" or user_feeling == "amazing":
+    elif user_feeling == "great":
         print("Cool!")
-    elif user_feeling == "bad" or user_feeling == "terrible" or user_feeling == "not good":
+    elif user_feeling == "bad" or user_feeling == "not good":
         event = input("That's not good! What happened? ")
         print("That's very unfortunate, I hope it gets better!")
     else:
