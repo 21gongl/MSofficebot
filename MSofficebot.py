@@ -3,6 +3,8 @@ import re
 import random
 import datetime
 from datetime import date
+from datetime import datetime
+from datetime import timedelta
 from teacher_room_number import teacher_rooms
 import json
 import requests
@@ -62,9 +64,16 @@ lunch_time = {
 def find_teacher_room(teacher):
     return teacher_rooms[teacher]
 
-today_datetime = datetime.datetime.now()
-today_date = str(today_datetime.strftime("%Y-%m-%d %A"))
-rotation_calendar = 
+today_datetime = datetime.now()
+today_date = today_datetime.strftime('%Y-%m-%d')
+str_today_date = str(today_date)
+date_1 = datetime.strptime('2018-01-28', '%Y-%m-%d')
+date_2 = date_1 + timedelta(days=1)
+date_1 = "Day B"
+
+# def find_day(date):
+    
+
 
 pairs = [
     [
@@ -89,7 +98,7 @@ pairs = [
     ],
     [
         r'(what day is it?)',
-        ['Today is {0}'.format(today_date)]
+        ['Today is {0}'.format(str_today_date)]
     ],
     [
       	r'(where is MS Lost and Found?)',
@@ -147,6 +156,7 @@ if __name__ == "__main__":
         print("Cool!")
 
     print("So {0}, what questions do you have?".format(username))
+    print(date_2)
 
     chat = ContextChat(pairs, reflections)
     chat.converse()
