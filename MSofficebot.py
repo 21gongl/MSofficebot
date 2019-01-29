@@ -144,7 +144,7 @@ if __name__ == "__main__":
         event = input("That's not good! What happened? ")
         print("That's very unfortunate, I hope it gets better!")
     else:
-        print("Cool!")1
+        print("Cool!")
 
     print("So {0}, what questions do you have?".format(username))
 
