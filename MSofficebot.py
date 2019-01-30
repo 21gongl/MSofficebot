@@ -5,9 +5,8 @@ import datetime
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
+import calendar
 from teacher_room_number import teacher_rooms
-import json
-import requests
 
 # === This is the extension code for the NLTK library ===
 
@@ -61,11 +60,14 @@ lunch_time = {
     "wednesday": ["13:35", "14:20"]
     }
 
+# def lunch_time(weekday):
+#     if today_
+
 def find_teacher_room(teacher):
     return teacher_rooms[teacher]
 
 today_datetime = datetime.now()
-today_date = today_datetime.strftime('%Y-%m-%d')
+today_date = today_datetime.strftime('%Y-%m-%d %A')
 str_today_date = str(today_date)
 
 def find_rotation_day(date):
@@ -79,9 +81,10 @@ def find_rotation_day(date):
         rotation_day = "Day D"
     elif days % 4 == 2:
         rotation_day = "Day A"
-    else:
+    elif days % 4 == 3:
         rotation_day = "Day B"
-    return rotation_day
+    today_day = str_today_date + " " + rotation_day + "."
+    return today_day
 
 pairs = [
     [
@@ -161,7 +164,7 @@ if __name__ == "__main__":
         event = input("That's not good! What happened? ")
         print("That's very unfortunate, I hope it gets better!")
     else:
-        print("Cool!")
+        print("Well, I'm doing alright.")
 
     print("So {0}, what questions do you have?".format(username))
 
