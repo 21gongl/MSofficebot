@@ -71,15 +71,15 @@ str_today_date = str(today_date)
 def find_rotation_day(date):
     start = datetime.strptime('2018-01-28', '%Y-%m-%d')
     end = today_datetime
-    difference = end.weekday() - start.weekday()
-    days = ((end-start).days - difference) / 7 * 5 + min(difference,5) - (max(end.weekday() - 4, 0) % 5) #source: StockOverflow
+    daydiff = end.weekday() - start.weekday()
+    days = ((end-start).days - daydiff) / 7 * 5 + min(daydiff,5) - (max(end.weekday() - 4, 0) % 5) #source: StockOverflow
     if days % 4 == 0:
         rotation_day = "Day C"
     elif days % 4 == 1:
         rotation_day = "Day D"
     elif days % 4 == 2:
         rotation_day = "Day A"
-    elif days % 4 == 3:
+    else:
         rotation_day = "Day B"
     return rotation_day
 
