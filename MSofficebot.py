@@ -153,11 +153,11 @@ if __name__ == "__main__":
     print("Okay, so your name is {0}.".format(username))
     
     user_feeling = input("How are you today? ")
-    if user_feeling == "good" or user_feeling == "fine":
+    if user_feeling == "good" or "fine":
         print("I'm glad.")
     elif user_feeling == "great":
         print("Cool!")
-    elif user_feeling == "bad" or user_feeling == "not good":
+    elif user_feeling == "bad" or "not good":
         event = input("That's not good! What happened? ")
         print("That's very unfortunate, I hope it gets better!")
     else:
