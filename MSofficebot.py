@@ -67,23 +67,21 @@ def find_teacher_room(teacher):
 today_datetime = datetime.now()
 today_date = today_datetime.strftime('%Y-%m-%d')
 str_today_date = str(today_date)
-date_1 = datetime.strptime('2018-01-28', '%Y-%m-%d')
-date_2 = date_1 + timedelta(days=1)
-date_2 = date_2.strftime('%Y-%m-%d')
-date_3 = date_1 + timedelta(days=2)
-date_3 = date_3.strftime('%Y-%m-%d')
-date_4 = date_1 + timedelta(days=4)
-date_4 = date_4.strftime('%Y-%m-%d')
-date_1 = "Day B"
-date_2 = "Day C"
-date_3 = "Day D"
-date_4 = "Day A"
 
-def find_day(date):
-    day = ""
-    return day
-    
-
+def find_rotation_day(date):
+    start = datetime.strptime('2018-01-28', '%Y-%m-%d')
+    end = today_datetime
+    difference = end.weekday() - start.weekday()
+    days = ((end-start).days - difference) / 7 * 5 + min(difference,5) - (max(end.weekday() - 4, 0) % 5) #source: StockOverflow
+    if (days % 4 == 0):
+        rotation_day = "Day B"
+    elif (days % 4 == 1):
+        rotation_day = "Day C"
+    elif (days % 4 == 2):
+        rotation_day = "Day D"
+    elif (days % 4 == 3):
+        rotation_day = "Day A"
+    return rotation_day
 
 pairs = [
     [
@@ -108,7 +106,7 @@ pairs = [
     ],
     [
         r'(what day is it?)',
-        ['Today is {0}'.format(str_today_date)]
+        [lambda matches: "Today is " + str(find_rotation_day(today_datetime))]
     ],
     [
       	r'(where is MS Lost and Found?)',
@@ -166,7 +164,6 @@ if __name__ == "__main__":
         print("Cool!")
 
     print("So {0}, what questions do you have?".format(username))
-    print(date_4)
 
     chat = ContextChat(pairs, reflections)
     chat.converse()
