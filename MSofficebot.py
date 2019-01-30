@@ -74,13 +74,13 @@ def find_rotation_day(date):
     difference = end.weekday() - start.weekday()
     days = ((end-start).days - difference) / 7 * 5 + min(difference,5) - (max(end.weekday() - 4, 0) % 5) #source: StockOverflow
     if (days % 4 == 0):
-        rotation_day = "Day B"
-    elif (days % 4 == 1):
         rotation_day = "Day C"
-    elif (days % 4 == 2):
+    elif (days % 4 == 1):
         rotation_day = "Day D"
-    elif (days % 4 == 3):
+    elif (days % 4 == 2):
         rotation_day = "Day A"
+    elif (days % 4 == 3):
+        rotation_day = "Day B"
     return rotation_day
 
 pairs = [
