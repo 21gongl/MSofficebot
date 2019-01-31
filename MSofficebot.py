@@ -42,6 +42,8 @@ class ContextChat(Chat):
 
     def converse(self, quit="quit"):
         user_input = ""
+        user_speech = []
+        user_speech.append(user_input)
         while user_input != quit:
             user_input = quit
             try: user_input = input(">")
@@ -149,7 +151,7 @@ if __name__ == "__main__":
     ],
     [
         r'(how are you?)',
-        ["Fine, thank you! And I know you are feeling {0}".format(user_feeling)]
+        ["Fine, thank you! And I know you are feeling {0}.".format(user_feeling)]
     ],
     [
         r'(hi)',
@@ -161,7 +163,7 @@ if __name__ == "__main__":
     ],
     [
         r'(.*)(thanks|thank you|thx)(.*)',
-        ["You're welcome."]
+        ["You're welcome, {0}.".format(username)]
     ],
     [
         r'(quit)',
