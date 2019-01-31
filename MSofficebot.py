@@ -55,24 +55,29 @@ class ContextChat(Chat):
 
 school_bus_time = ["3:45", "4:30", "5:30"]
 
-lunch_time = {
+lunchtime = {
     "not wednesday": ["11:00", "11:40"], 
     "wednesday": ["13:35", "14:20"]
     }
 
-# def lunch_time(weekday):
-#     if today_
-
 def find_teacher_room(teacher):
     return teacher_rooms[teacher]
 
-today_datetime = datetime.now()
-today_date = today_datetime.strftime('%Y-%m-%d %A')
+today = datetime.now()
+today_date = today.strftime('%Y-%m-%d %A')
 str_today_date = str(today_date)
+
+def find_lunchtime(today):
+    today_weekday = today.strftime('%A')
+    if today_weekday == "Wednesday":
+        today_lunchtime = lunchtime.get("wednesday")
+    else:
+        toda_lunchtime = lunchtime.get("not wednesday")
+    return today_lunchtime
 
 def find_rotation_day(date):
     start = datetime.strptime('2018-01-28', '%Y-%m-%d')
-    end = today_datetime
+    end = today
     daydiff = end.weekday() - start.weekday()
     days = ((end-start).days - daydiff) / 7 * 5 + min(daydiff,5) - (max(end.weekday() - 4, 0) % 5) #source: StockOverflow
     if days % 4 == 0:
@@ -101,7 +106,7 @@ if __name__ == "__main__":
         event = input("That's not good! What happened? ")
         print("That's very unfortunate, I hope it gets better!")
     else:
-        print("Well, I'm doing alright.")
+        print("Well, I hope you'll have a great day.")
 
     print("So {0}, what questions do you have?".format(username))
 
@@ -112,15 +117,15 @@ if __name__ == "__main__":
     ],
     [
         r'(when)(.*)(lunch)(.*)(monday|tuesday|thursday|friday?)', 
-        ['Lunch is between {0}.'.format(lunch_time["not wednesday"])]
+        ['Lunch is between {0}.'.format(lunchtime["not wednesday"])]
     ],
     [
         r'(when)(.*)(lunch)(.*)(wednesday?)', 
-        ['Lunch is between {0} on Wednesdays.'.format(lunch_time["wednesday"])]
+        ['Lunch is between {0} on Wednesdays.'.format(lunchtime["wednesday"])]
     ],
     [
       	r'(when)(.*)(lunch?)',
-      	['Lunch is between {0} on most days.'.format(lunch_time["not wednesday"])]
+        [lambda matches: "Lunch is between " + str(find_lunchtime(today))]
     ],
     [
         r'(where is)(.*)(room?)',
@@ -128,7 +133,7 @@ if __name__ == "__main__":
     ],
     [
         r'(what day is it?)',
-        [lambda matches: "Today is " + str(find_rotation_day(today_datetime))]
+        [lambda matches: "Today is " + str(find_rotation_day(today))]
     ],
     [
       	r'(where is MS Lost and Found?)',
