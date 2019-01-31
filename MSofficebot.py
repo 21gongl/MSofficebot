@@ -5,7 +5,6 @@ import datetime
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
-import calendar
 from teacher_room_number import teacher_rooms
 
 # === This is the extension code for the NLTK library ===
