@@ -72,7 +72,7 @@ def find_lunchtime(today):
     if today_weekday == "Wednesday":
         today_lunchtime = lunchtime.get("wednesday")
     else:
-        toda_lunchtime = lunchtime.get("not wednesday")
+        today_lunchtime = lunchtime.get("not wednesday")
     return today_lunchtime
 
 def find_rotation_day(date):
@@ -163,6 +163,10 @@ if __name__ == "__main__":
         r'(.*)(thanks|thank you|thx)(.*)',
         ["You're welcome."]
     ],
+    [
+        r'(user speech)',
+        ['{0}'.format(user_speech)]
+    ]
     [
         r'(quit)',
         ["Bye!"]
