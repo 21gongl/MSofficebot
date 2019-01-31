@@ -164,10 +164,6 @@ if __name__ == "__main__":
         ["You're welcome."]
     ],
     [
-        r'(user speech)',
-        ['{0}'.format(user_speech)]
-    ]
-    [
         r'(quit)',
         ["Bye!"]
     ],
