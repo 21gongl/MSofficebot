@@ -86,7 +86,26 @@ def find_rotation_day(date):
     today_day = str_today_date + " " + rotation_day + "."
     return today_day
 
-pairs = [
+if __name__ == "__main__":
+    name = "MSofficeBot"
+    print("Hi, I am {0}.".format(name))
+    username = input("What's your name? ")
+    print("Okay, so your name is {0}.".format(username))
+    
+    user_feeling = input("How are you today? ")
+    if user_feeling == "good" or "fine":
+        print("I'm glad.")
+    elif user_feeling == "great":
+        print("Cool!")
+    elif user_feeling == "bad" or "not good":
+        event = input("That's not good! What happened? ")
+        print("That's very unfortunate, I hope it gets better!")
+    else:
+        print("Well, I'm doing alright.")
+
+    print("So {0}, what questions do you have?".format(username))
+
+    pairs = [
     [
       	r'(when)(.*)(schoolbus|bus)(leave)?',
       	['Buses leave at {0}.'.format(school_bus_time)]
@@ -125,7 +144,7 @@ pairs = [
     ],
     [
         r'(how are you?)',
-        ["Fine, thank you!"]
+        ["Fine, thank you! And I know you are feeling {0}".format(user_feeling)]
     ],
     [
         r'(hi)',
@@ -148,25 +167,5 @@ pairs = [
         ["Maybe you should try to rephrase your question."],
     ]
 ]
-
-if __name__ == "__main__":
-    name = "MSofficeBot"
-    print("Hi, I am {0}.".format(name))
-    username = input("What's your name? ")
-    print("Okay, so your name is {0}.".format(username))
-    
-    user_feeling = input("How are you today? ")
-    if user_feeling == "good" or "fine":
-        print("I'm glad.")
-    elif user_feeling == "great":
-        print("Cool!")
-    elif user_feeling == "bad" or "not good":
-        event = input("That's not good! What happened? ")
-        print("That's very unfortunate, I hope it gets better!")
-    else:
-        print("Well, I'm doing alright.")
-
-    print("So {0}, what questions do you have?".format(username))
-
     chat = ContextChat(pairs, reflections)
     chat.converse()
